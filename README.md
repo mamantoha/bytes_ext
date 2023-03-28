@@ -67,11 +67,11 @@ new_f64 = Float64.from_le_bytes(bytes)
 
 ## Contributing
 
-1. Fork it (https://github.com/mamantoha/bytes_ext/fork)
-2. Create your feature branch (git checkout -b my-new-feature)
-3. Commit your changes (git commit -am 'Add some feature')
-4. Push to the branch (git push origin my-new-feature)
-5. Create a new Pull Request
+1. Fork it like a pancake (https://github.com/mamantoha/bytes_ext/fork)
+2. Create your own feature branch (git checkout -b my-new-feature), just like a new hairstyle or outfit
+3. Make your changes (git commit -am 'Add some feature') and show off your creativity
+4. Push it real good to the branch (git push origin my-new-feature), like a champ
+5. Finally, strut your stuff and create a new Pull Request. Don't be shy, show us what you got!
 
 ## License
 
