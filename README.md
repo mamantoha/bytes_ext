@@ -1,5 +1,7 @@
 # Byte Conversion Library for Crystal
 
+[![Crystal CI](https://github.com/mamantoha/bytes_ext/actions/workflows/crystal.yml/badge.svg)](https://github.com/mamantoha/bytes_ext/actions/workflows/crystal.yml)
+
 This library provides methods for converting numeric types (`Int32`, `Int64`, `Float32`, and `Float64`) to and from byte arrays in Crystal programming language. The methods support both little-endian and big-endian byte orders.
 
 Everything in this repository, including the code, tests, and README has been created by ChatGPT-4 with some guidance.
@@ -8,6 +10,8 @@ Everything in this repository, including the code, tests, and README has been cr
 
 - `to_bytes`, `to_le_bytes`, and `to_be_bytes` methods for converting numbers to byte arrays
 - `from_bytes`, `from_le_bytes`, and `from_be_bytes` methods for creating numbers from byte arrays
+
+Psst...if you're feeling curious and want to dive deeper into the nitty-gritty details, check out the documentation available at this top secret, classified [link](https://mamantoha.github.io/bytes_ext/). Just don't tell anyone I sent you there!
 
 ## Installation
 
