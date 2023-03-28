@@ -1,31 +1,3 @@
-{% for type in %w(UInt32 UInt64) %}
-  struct {{type.id}}
-    def to_bytes(endian : IO::ByteFormat = IO::ByteFormat::SystemEndian) : Bytes
-      # Calculate the number of bytes based on the size of the type
-      num_bytes = sizeof({{type.id}})
-
-      # Create a new empty array with the appropriate number of bytes
-      byte_array = Bytes.new(num_bytes)
-
-      # Check if the system's byte order is the same as the desired endianness
-      if (endian == IO::ByteFormat::LittleEndian) == (IO::ByteFormat::SystemEndian == IO::ByteFormat::LittleEndian)
-        # The system's byte order matches the desired endianness
-        # Write the value to the byte array using a pointer
-        pointer = Pointer({{type.id}}).new(byte_array.to_unsafe.address)
-        pointer.value = self
-      else
-        # The system's byte order is different from the desired endianness
-        # Write the value to the byte array byte-by-byte, reversing the order
-        num_bytes.times do |i|
-          byte_array[num_bytes - 1 - i] = ((self >> (i * 8)) & 0xFF).to_u8
-        end
-      end
-
-      byte_array
-    end
-  end
-{% end %}
-
 macro bytes_ext_impl(
   type,
   unsigned_type,
@@ -35,21 +7,12 @@ macro bytes_ext_impl(
   be_bytes
 )
   struct {{type.id}}
-    # Raw transmutation from `UInt32`.
-    def self.from_bits(v : UInt32) : {{type.id}}
-      # Convert the `UInt32` value to `{{type.id}}` with the same bit representation
-      v.unsafe_as({{type.id}})
-    end
-
-    # Raw transmutation to `UInt32`.
-    def to_bits : {{unsigned_type.id}}
-      # Convert the value to `UInt32` with the same bit representation
-      self.unsafe_as({{unsigned_type.id}})
-    end
-
-    # Return the memory representation of this floating point number as a byte array
+    # Return the memory representation of this number as a byte array
     def to_bytes(endian : IO::ByteFormat = IO::ByteFormat::SystemEndian) : Bytes
-      to_bits.to_bytes(endian)
+      io = IO::Memory.new
+      io.write_bytes(self, endian)
+      io.rewind
+      io.getb_to_end
     end
 
     # Return the memory representation of this number as a byte array in little-endian byte order.
