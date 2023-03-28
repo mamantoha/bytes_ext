@@ -6,7 +6,6 @@ Everything in this repository, including the code, tests, and README has been cr
 
 ## Features
 
-- `to_bits` and `from_bits` methods for raw transmutation between types
 - `to_bytes`, `to_le_bytes`, and `to_be_bytes` methods for converting numbers to byte arrays
 - `from_bytes`, `from_le_bytes`, and `from_be_bytes` methods for creating numbers from byte arrays
 

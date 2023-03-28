@@ -1,14 +1,6 @@
 require "./spec_helper"
 
 describe Int32 do
-  describe ".from_bits" do
-    it { Int32.from_bits(0x12345678u32).should eq(0x12345678i32) }
-  end
-
-  describe "#to_bits" do
-    it { 0x12345678i32.to_bits.should eq(0x12345678u32) }
-  end
-
   describe "#to_bytes" do
     it { 0x12345678i32.to_bytes.should eq(Bytes[0x78, 0x56, 0x34, 0x12]) }
   end
@@ -53,14 +45,6 @@ describe Int64 do
 end
 
 describe Float32 do
-  describe ".from_bits" do
-    it { Float32.from_bits(0x41480000u32).should eq(12.5f32) }
-  end
-
-  describe "#to_bits" do
-    it { 12.5f32.to_bits.should eq(0x41480000u32) }
-  end
-
   describe "#to_bytes" do
     it { 12.5f32.to_bytes.should eq(Bytes[0x00, 0x00, 0x48, 0x41]) }
   end
@@ -79,10 +63,6 @@ describe Float32 do
 end
 
 describe Float64 do
-  describe "#to_bits" do
-    it { 12.5.to_bits.should eq(0x4029000000000000u64) }
-  end
-
   describe "#to_bytes" do
     it { 12.5.to_bytes.should eq(Bytes[0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x29, 0x40]) }
   end
