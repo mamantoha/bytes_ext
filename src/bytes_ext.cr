@@ -35,6 +35,10 @@ macro bytes_ext_impl(
       to_bytes(IO::ByteFormat::BigEndian)
     end
 
+    def to_ne_bytes : Bytes
+      to_bytes(IO::ByteFormat::SystemEndian)
+    end
+
     # Create a `{{type.id}}` value from its representation as a byte array.
     def self.from_bytes(bytes : Bytes, endian : IO::ByteFormat = IO::ByteFormat::SystemEndian) : {{type.id}}
       raise ArgumentError.new("Expected exactly #{sizeof({{type}})} bytes") unless bytes.size == sizeof({{type}})
@@ -49,7 +53,7 @@ macro bytes_ext_impl(
     # bytes = Bytes{{le_bytes.id}}
     # # => {{swap_op.id}}
     # ```
-    def self.from_le_bytes(bytes : Bytes, endian : IO::ByteFormat = IO::ByteFormat::SystemEndian) : {{type.id}}
+    def self.from_le_bytes(bytes : Bytes) : {{type.id}}
       self.from_bytes(bytes, IO::ByteFormat::LittleEndian)
     end
 
@@ -59,8 +63,12 @@ macro bytes_ext_impl(
     # bytes = Bytes{{be_bytes.id}}
     # # => {{swap_op.id}}
     # ```
-    def self.from_be_bytes(bytes : Bytes, endian : IO::ByteFormat = IO::ByteFormat::SystemEndian) : {{type.id}}
+    def self.from_be_bytes(bytes : Bytes) : {{type.id}}
       self.from_bytes(bytes, IO::ByteFormat::BigEndian)
+    end
+
+    def self.from_ne_bytes(bytes : Bytes) : {{type.id}}
+      self.from_bytes(bytes, IO::ByteFormat::SystemEndian)
     end
   end
 end
