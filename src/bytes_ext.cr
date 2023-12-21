@@ -99,21 +99,21 @@ bytes_ext_impl Float64,
 
 bytes_ext_impl UInt8,
   UInt8,
-  "12_u8",
+  "0x12u8",
   "[0x12]",
   "[0x12]"
 
 bytes_ext_impl UInt16,
   UInt16,
-  "12_u8",
-  "[0x12]",
-  "[0x12]"
+  "1234_u16",
+  "[0x34, 0x12]",
+  "[0x12, 0x34]"
 
 bytes_ext_impl UInt32,
   UInt32,
-  "12_u8",
-  "[0x12]",
-  "[0x12]"
+  "12345678_u32",
+  "[0x78, 0x56, 0x34, 0x12]",
+  "[0x12, 0x34, 0x56, 0x78]"
 
 bytes_ext_impl UInt64,
   UInt64,

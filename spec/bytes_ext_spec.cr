@@ -79,3 +79,39 @@ describe Float64 do
     it { Float64.from_be_bytes(Bytes[0x40, 0x29, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]).should eq(12.5) }
   end
 end
+
+describe UInt8 do
+  describe "#to_bytes" do
+    it { 0x12u8.to_bytes.should eq(Bytes[0x12]) }
+  end
+
+  describe ".from_bytes" do
+    it { UInt8.from_bytes(Bytes[0x12]).should eq(0x12u8) }
+  end
+
+  describe ".from_le_bytes" do
+    it { UInt8.from_le_bytes(Bytes[0x12]).should eq(0x12u8) }
+  end
+
+  describe ".from_be_bytes" do
+    it { UInt8.from_be_bytes(Bytes[0x12]).should eq(0x12u8) }
+  end
+end
+
+describe UInt16 do
+  describe "#to_bytes" do
+    it { 0x1234u16.to_bytes.should eq(Bytes[0x34, 0x12]) }
+  end
+
+  describe ".from_bytes" do
+    it { UInt16.from_bytes(Bytes[0x34, 0x12]).should eq(0x1234u16) }
+  end
+
+  describe ".from_le_bytes" do
+    it { UInt16.from_le_bytes(Bytes[0x34, 0x12]).should eq(0x1234u16) }
+  end
+
+  describe ".from_be_bytes" do
+    it { UInt16.from_be_bytes(Bytes[0x12, 0x34]).should eq(0x1234u16) }
+  end
+end
