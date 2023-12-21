@@ -103,6 +103,18 @@ bytes_ext_impl UInt8,
   "[0x12]",
   "[0x12]"
 
+bytes_ext_impl UInt16,
+  UInt16,
+  "12_u8",
+  "[0x12]",
+  "[0x12]"
+
+bytes_ext_impl UInt32,
+  UInt32,
+  "12_u8",
+  "[0x12]",
+  "[0x12]"
+
 bytes_ext_impl UInt64,
   UInt64,
   "1234567890123456_u64",
