@@ -105,7 +105,7 @@ bytes_ext_impl UInt8,
 
 bytes_ext_impl UInt16,
   UInt16,
-  "1234_u16",
+  "0x1234u16",
   "[0x34, 0x12]",
   "[0x12, 0x34]"
 
