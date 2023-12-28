@@ -51,6 +51,7 @@ macro bytes_ext_impl(
     #
     # ```
     # bytes = Bytes{{le_bytes.id}}
+    # {{type.id}}.from_le_bytes(bytes)
     # # => {{swap_op.id}}
     # ```
     def self.from_le_bytes(bytes : Bytes) : {{type.id}}
@@ -61,6 +62,7 @@ macro bytes_ext_impl(
     #
     # ```
     # bytes = Bytes{{be_bytes.id}}
+    # {{type.id}}.from_be_bytes(bytes)
     # # => {{swap_op.id}}
     # ```
     def self.from_be_bytes(bytes : Bytes) : {{type.id}}
