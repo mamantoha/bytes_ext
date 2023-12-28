@@ -73,6 +73,18 @@ macro bytes_ext_impl(
   end
 end
 
+bytes_ext_impl Int8,
+  UInt8,
+  "0x12i8",
+  "[0x12]",
+  "[0x78]"
+
+bytes_ext_impl Int16,
+  UInt16,
+  "0x1234i16",
+  "[0x34, 0x12]",
+  "[0x12, 0x34]"
+
 bytes_ext_impl Int32,
   UInt32,
   "0x12345678i32",
