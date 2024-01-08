@@ -2,7 +2,7 @@
 
 [![Crystal CI](https://github.com/mamantoha/bytes_ext/actions/workflows/crystal.yml/badge.svg)](https://github.com/mamantoha/bytes_ext/actions/workflows/crystal.yml)
 
-This library provides methods for converting numeric types (`Int32`, `Int64`, `Float32`, and `Float64`) to and from byte arrays in Crystal programming language. The methods support both little-endian and big-endian byte orders.
+This library provides methods for converting numbers (signed and unsigned integers, and floating point types) to and from byte arrays in Crystal programming language. The methods support both little-endian and big-endian byte orders.
 
 Everything in this repository, including the code, tests, and README has been created by ChatGPT-4 with some guidance.
 
