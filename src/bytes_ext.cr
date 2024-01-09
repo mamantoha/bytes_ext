@@ -7,10 +7,10 @@ macro bytes_ext_impl(
   be_bytes
 )
   struct {{type.id}}
-    # Return the memory representation of this number as a byte array
-    def to_bytes(endian : IO::ByteFormat = IO::ByteFormat::SystemEndian) : Bytes
+    # Return the memory representation of this number as a byte array using the specified *format*
+    def to_bytes(format : IO::ByteFormat = IO::ByteFormat::SystemEndian) : Bytes
       io = IO::Memory.new
-      io.write_bytes(self, endian)
+      io.write_bytes(self, format)
       io.rewind
       io.getb_to_end
     end
@@ -40,11 +40,11 @@ macro bytes_ext_impl(
     end
 
     # Create a `{{type.id}}` value from its representation as a byte array.
-    def self.from_bytes(bytes : Bytes, endian : IO::ByteFormat = IO::ByteFormat::SystemEndian) : {{type.id}}
+    def self.from_bytes(bytes : Bytes, format : IO::ByteFormat = IO::ByteFormat::SystemEndian) : {{type.id}}
       raise ArgumentError.new("Expected exactly #{sizeof({{type}})} bytes") unless bytes.size == sizeof({{type}})
 
       memory_io = IO::Memory.new(bytes)
-      {{type.id}}.from_io(memory_io, endian)
+      {{type.id}}.from_io(memory_io, format)
     end
 
     # Create a `{{type.id}}` value from its representation as a byte array in little endian.
