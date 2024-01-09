@@ -8,8 +8,8 @@ Everything in this repository, including the code, tests, and README has been cr
 
 ## Features
 
-- `to_bytes`, `to_le_bytes`, `to_be_bytes`, and `to_ne_bytes` methods for converting numbers to byte arrays
-- `from_bytes`, `from_le_bytes`, `from_be_bytes`, and `from_ne_bytes` methods for creating numbers from byte arrays
+- `to_bytes`, `to_le_bytes`, and `to_be_bytes` methods for converting numbers to byte arrays
+- `from_bytes`, `from_le_bytes`, and `from_be_bytes` methods for creating numbers from byte arrays
 
 Psst...if you're feeling curious and want to dive deeper into the nitty-gritty details, check out the documentation available at this top secret, classified [link](https://mamantoha.github.io/bytes_ext/). Just don't tell anyone I sent you there!
 
