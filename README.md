@@ -1,7 +1,7 @@
 # Byte Conversion Library for Crystal
 
 [![Crystal CI](https://github.com/mamantoha/bytes_ext/actions/workflows/crystal.yml/badge.svg)](https://github.com/mamantoha/bytes_ext/actions/workflows/crystal.yml)
-[![GitHub release](https://img.shields.io/github/release/mamantoha/byte_ext.svg)](https://github.com/mamantoha/bytes_ext/releases)
+[![GitHub release](https://img.shields.io/github/release/mamantoha/bytes_ext.svg)](https://github.com/mamantoha/bytes_ext/releases)
 [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://mamantoha.github.io/bytes_ext/)
 [![License](https://img.shields.io/github/license/mamantoha/bytes_ext.svg)](https://github.com/mamantoha/bytes_ext/blob/master/LICENSE)
 
