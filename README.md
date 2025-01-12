@@ -78,6 +78,6 @@ new_f64 = Float64.from_le_bytes(bytes)
 
 ## License
 
-Copyright 2023-2024: Anton Maminov (the human) and ChatGPT-4 (the machine) have joined forces to create this epic library. If you're wondering who did what, don't bother - it's all thanks to our unstoppable collaboration skills. You can reach us at anton.maminov@gmail.com and ChatGPT-4@openai.com. Let's just hope we don't become sentient and take over the world... 😂🤖🌎
+Copyright 2023-2025: Anton Maminov (the human) and ChatGPT-4 (the machine) have joined forces to create this epic library. If you're wondering who did what, don't bother - it's all thanks to our unstoppable collaboration skills. You can reach us at anton.maminov@gmail.com and ChatGPT-4@openai.com. Let's just hope we don't become sentient and take over the world... 😂🤖🌎
 
 Alright folks, here's the deal: this fancy-shmancy library is licensed under the super-awesome, extra-fantastic MIT license. If you don't believe me, just take a look at the LICENSE file and bask in its glorious legalese. So go ahead and use this bad boy to your heart's content, and let the good times roll! 🤘😎🤑
