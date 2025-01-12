@@ -4,7 +4,7 @@ macro bytes_ext_impl(
   # There are all for use *only* in doc comments.
   swap_op,
   le_bytes,
-  be_bytes
+  be_bytes,
 )
   struct {{type.id}}
     # Return the memory representation of this number as a byte array using the specified *format*
