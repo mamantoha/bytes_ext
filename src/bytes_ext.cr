@@ -6,7 +6,7 @@ macro bytes_ext_impl(
   le_bytes,
   be_bytes,
 )
-  struct {{type.id}}
+  struct {{ type.id }}
     # Return the memory representation of this number as a byte array using the specified *format*
     def to_bytes(format : IO::ByteFormat = IO::ByteFormat::SystemEndian) : Bytes
       io = IO::Memory.new
@@ -18,8 +18,8 @@ macro bytes_ext_impl(
     # Return the memory representation of this number as a byte array in little-endian byte order.
     #
     # ```
-    # bytes = {{swap_op.id}}.to_le_bytes
-    # # => Bytes{{le_bytes.id}}
+    # bytes = {{ swap_op.id }}.to_le_bytes
+    # # => Bytes{{ le_bytes.id }}
     # ```
     def to_le_bytes  : Bytes
       to_bytes(IO::ByteFormat::LittleEndian)
@@ -28,40 +28,40 @@ macro bytes_ext_impl(
     # Return the memory representation of this number as a byte array in big-endian (network) byte order.
     #
     # ```
-    # bytes = {{swap_op}}.to_be_bytes
-    # # => Bytes{{be_bytes.id}}
+    # bytes = {{ swap_op }}.to_be_bytes
+    # # => Bytes{{ be_bytes.id }}
     # ```
     def to_be_bytes  : Bytes
       to_bytes(IO::ByteFormat::BigEndian)
     end
 
-    # Create a `{{type.id}}` value from its representation as a byte array.
-    def self.from_bytes(bytes : Bytes, format : IO::ByteFormat = IO::ByteFormat::SystemEndian) : {{type.id}}
-      raise ArgumentError.new("Expected exactly #{sizeof({{type}})} bytes") unless bytes.size == sizeof({{type}})
+    # Create a `{{ type.id }}` value from its representation as a byte array.
+    def self.from_bytes(bytes : Bytes, format : IO::ByteFormat = IO::ByteFormat::SystemEndian) : {{ type.id }}
+      raise ArgumentError.new("Expected exactly #{sizeof({{ type }})} bytes") unless bytes.size == sizeof({{ type }})
 
       memory_io = IO::Memory.new(bytes)
-      {{type.id}}.from_io(memory_io, format)
+      {{ type.id }}.from_io(memory_io, format)
     end
 
-    # Create a `{{type.id}}` value from its representation as a byte array in little endian.
+    # Create a `{{ type.id }}` value from its representation as a byte array in little endian.
     #
     # ```
-    # bytes = Bytes{{le_bytes.id}}
-    # {{type.id}}.from_le_bytes(bytes)
-    # # => {{swap_op.id}}
+    # bytes = Bytes{{ le_bytes.id }}
+    # {{ type.id }}.from_le_bytes(bytes)
+    # # => {{ swap_op.id }}
     # ```
-    def self.from_le_bytes(bytes : Bytes) : {{type.id}}
+    def self.from_le_bytes(bytes : Bytes) : {{ type.id }}
       self.from_bytes(bytes, IO::ByteFormat::LittleEndian)
     end
 
-    # Create a `{{type.id}}` value from its representation as a byte array in big endian.
+    # Create a `{{ type.id }}` value from its representation as a byte array in big endian.
     #
     # ```
-    # bytes = Bytes{{be_bytes.id}}
-    # {{type.id}}.from_be_bytes(bytes)
-    # # => {{swap_op.id}}
+    # bytes = Bytes{{ be_bytes.id }}
+    # {{ type.id }}.from_be_bytes(bytes)
+    # # => {{ swap_op.id }}
     # ```
-    def self.from_be_bytes(bytes : Bytes) : {{type.id}}
+    def self.from_be_bytes(bytes : Bytes) : {{ type.id }}
       self.from_bytes(bytes, IO::ByteFormat::BigEndian)
     end
   end
