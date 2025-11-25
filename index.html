@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Crystal Docs 1.18.2">
+<meta name="crystal_docs.project_version" content="main">
+<meta name="crystal_docs.project_name" content="bytes_ext">
+
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/doc.js"></script>
+
+  <meta name="repository-name" content="bytes_ext">
+  <title>bytes_ext main</title>
+  <script type="text/javascript">
+  CrystalDocs.base_path = "";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill="currentColor" fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<input type="checkbox" id="sidebar-btn">
+<label for="sidebar-btn" id="sidebar-btn-label">
+  <svg class="open" xmlns="http://www.w3.org/2000/svg" height="2em" width="2em" viewBox="0 0 512 512"><title>Open Sidebar</title><path fill="currentColor" d="M80 96v64h352V96H80zm0 112v64h352v-64H80zm0 112v64h352v-64H80z"></path></svg>
+  <svg class="close" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512"><title>Close Sidebar</title><path fill="currentColor" d="m118.6 73.4-45.2 45.2L210.7 256 73.4 393.4l45.2 45.2L256 301.3l137.4 137.3 45.2-45.2L301.3 256l137.3-137.4-45.2-45.2L256 210.7Z"></path></svg>
+</label>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="index.html">
+          bytes_ext
+        </a>
+      </h1>
+
+      <span class="project-version">
+        main
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class=" " data-id="bytes_ext/toplevel" data-name="top level namespace">
+      <a href="toplevel.html">Top Level Namespace</a>
+      
+    </li>
+  
+  <li class=" " data-id="bytes_ext/Float32" data-name="float32">
+      <a href="Float32.html">Float32</a>
+      
+    </li>
+  
+  <li class=" " data-id="bytes_ext/Float64" data-name="float64">
+      <a href="Float64.html">Float64</a>
+      
+    </li>
+  
+  <li class=" " data-id="bytes_ext/Int128" data-name="int128">
+      <a href="Int128.html">Int128</a>
+      
+    </li>
+  
+  <li class=" " data-id="bytes_ext/Int16" data-name="int16">
+      <a href="Int16.html">Int16</a>
+      
+    </li>
+  
+  <li class=" " data-id="bytes_ext/Int32" data-name="int32">
+      <a href="Int32.html">Int32</a>
+      
+    </li>
+  
+  <li class=" " data-id="bytes_ext/Int64" data-name="int64">
+      <a href="Int64.html">Int64</a>
+      
+    </li>
+  
+  <li class=" " data-id="bytes_ext/Int8" data-name="int8">
+      <a href="Int8.html">Int8</a>
+      
+    </li>
+  
+  <li class=" " data-id="bytes_ext/UInt128" data-name="uint128">
+      <a href="UInt128.html">UInt128</a>
+      
+    </li>
+  
+  <li class=" " data-id="bytes_ext/UInt16" data-name="uint16">
+      <a href="UInt16.html">UInt16</a>
+      
+    </li>
+  
+  <li class=" " data-id="bytes_ext/UInt32" data-name="uint32">
+      <a href="UInt32.html">UInt32</a>
+      
+    </li>
+  
+  <li class=" " data-id="bytes_ext/UInt64" data-name="uint64">
+      <a href="UInt64.html">UInt64</a>
+      
+    </li>
+  
+  <li class=" " data-id="bytes_ext/UInt8" data-name="uint8">
+      <a href="UInt8.html">UInt8</a>
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1><a id="byte-conversion-library-for-crystal" class="anchor" href="#byte-conversion-library-for-crystal">  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Byte Conversion Library for Crystal</h1>
+<p><a href="https://github.com/mamantoha/bytes_ext/actions/workflows/crystal.yml"><img src="https://github.com/mamantoha/bytes_ext/actions/workflows/crystal.yml/badge.svg" alt="Crystal CI" /></a>
+<a href="https://github.com/mamantoha/bytes_ext/releases"><img src="https://img.shields.io/github/release/mamantoha/bytes_ext.svg" alt="GitHub release" /></a>
+<a href="https://mamantoha.github.io/bytes_ext/"><img src="https://img.shields.io/badge/docs-available-brightgreen.svg" alt="Docs" /></a>
+<a href="https://github.com/mamantoha/bytes_ext/blob/master/LICENSE"><img src="https://img.shields.io/github/license/mamantoha/bytes_ext.svg" alt="License" /></a></p>
+<p>This library provides methods for converting numbers (signed and unsigned integers, and floating point types) to and from byte arrays in Crystal programming language. The methods support both little-endian and big-endian byte orders.</p>
+<p>Everything in this repository, including the code, tests, and README has been created by ChatGPT-4 with some guidance.</p>
+<h2><a id="features" class="anchor" href="#features">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Features</h2>
+<ul>
+<li><code>to_bytes</code>, <code>to_le_bytes</code>, and <code>to_be_bytes</code> methods for converting numbers to byte arrays</li>
+<li><code>from_bytes</code>, <code>from_le_bytes</code>, and <code>from_be_bytes</code> methods for creating numbers from byte arrays</li>
+</ul>
+<p>Psst...if you're feeling curious and want to dive deeper into the nitty-gritty details, check out the documentation available at this top secret, classified <a href="https://mamantoha.github.io/bytes_ext/">link</a>. Just don't tell anyone I sent you there!</p>
+<h2><a id="installation" class="anchor" href="#installation">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Installation</h2>
+<p>Add this to your application's shard.yml:</p>
+<pre><code class="language-yaml">dependencies:
+  bytes_ext:
+    github: mamantoha/bytes_ext</code></pre>
+<h2><a id="usage" class="anchor" href="#usage">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Usage</h2>
+<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;bytes_ext&quot;</span>
+
+<span class="c"># Convert an Int32 to its byte representation</span>
+i32 <span class="o">=</span> <span class="n">0x12345678_i32</span>
+bytes <span class="o">=</span> i32.to_le_bytes
+<span class="c"># =&gt; Bytes[0x78, 0x56, 0x34, 0x12]</span>
+
+<span class="c"># Convert a byte array to an Int32</span>
+new_i32 <span class="o">=</span> <span class="t">Int32</span>.from_le_bytes(bytes)
+<span class="c"># =&gt; 0x12345678_i32</span>
+
+<span class="c"># Convert an Int64 to its byte representation</span>
+i64 <span class="o">=</span> <span class="n">1234_i64</span>
+bytes <span class="o">=</span> i64.to_le_bytes
+<span class="c"># =&gt; Bytes[0xD2, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]</span>
+
+<span class="c"># Convert a byte array to an Int64</span>
+new_i64 <span class="o">=</span> <span class="t">Int64</span>.from_le_bytes(bytes)
+<span class="c"># =&gt; 1234_i64</span>
+
+<span class="c"># Convert a Float32 to its byte representation</span>
+f32 <span class="o">=</span> <span class="n">12.5f32</span>
+bytes <span class="o">=</span> f32.to_le_bytes
+<span class="c"># =&gt; Bytes[0x00, 0x00, 0x48, 0x41]</span>
+
+<span class="c"># Convert a byte array to a Float32</span>
+new_f32 <span class="o">=</span> <span class="t">Float32</span>.from_le_bytes(bytes)
+<span class="c"># =&gt; 12.5f32</span>
+
+<span class="c"># Convert a Float64 to its byte representation</span>
+f64 <span class="o">=</span> <span class="n">12.5</span>
+bytes <span class="o">=</span> f64.to_le_bytes
+<span class="c"># =&gt; Bytes[0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x29, 0x40]</span>
+
+<span class="c"># Convert a byte array to a Float64</span>
+new_f64 <span class="o">=</span> <span class="t">Float64</span>.from_le_bytes(bytes)
+<span class="c"># =&gt; 12.5</span></code></pre>
+<h2><a id="contributing" class="anchor" href="#contributing">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Contributing</h2>
+<ol>
+<li>Fork it like a pancake (https://github.com/mamantoha/bytes_ext/fork)</li>
+<li>Create your own feature branch (git checkout -b my-new-feature), just like a new hairstyle or outfit</li>
+<li>Make your changes (git commit -am 'Add some feature') and show off your creativity</li>
+<li>Push it real good to the branch (git push origin my-new-feature), like a champ</li>
+<li>Finally, strut your stuff and create a new Pull Request. Don't be shy, show us what you got!</li>
+</ol>
+<h2><a id="license" class="anchor" href="#license">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>License</h2>
+<p>Copyright 2023-2025: Anton Maminov (the human) and ChatGPT-4 (the machine) have joined forces to create this epic library. If you're wondering who did what, don't bother - it's all thanks to our unstoppable collaboration skills. You can reach us at anton.maminov@gmail.com and ChatGPT-4@openai.com. Let's just hope we don't become sentient and take over the world... 😂🤖🌎</p>
+<p>Alright folks, here's the deal: this fancy-shmancy library is licensed under the super-awesome, extra-fantastic MIT license. If you don't believe me, just take a look at the LICENSE file and bask in its glorious legalese. So go ahead and use this bad boy to your heart's content, and let the good times roll! 🤘😎🤑</p>
+</div>
+</body>
+</html>
