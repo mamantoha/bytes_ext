@@ -5,8 +5,16 @@ describe Int32 do
     it { 0x12345678i32.to_bytes.should eq(Bytes[0x78, 0x56, 0x34, 0x12]) }
   end
 
+  describe "#to_ne_bytes" do
+    it { 0x12345678i32.to_ne_bytes.should eq(0x12345678i32.to_bytes) }
+  end
+
   describe ".from_bytes" do
     it { Int32.from_bytes(Bytes[0x78, 0x56, 0x34, 0x12]).should eq(0x12345678i32) }
+  end
+
+  describe ".from_ne_bytes" do
+    it { Int32.from_ne_bytes(0x12345678i32.to_ne_bytes).should eq(0x12345678i32) }
   end
 
   describe ".from_le_bytes" do

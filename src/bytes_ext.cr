@@ -9,8 +9,18 @@ macro bytes_ext_impl(
   struct {{ type.id }}
     # Return the memory representation of this number as a byte array using the specified *format*
     def to_bytes(format : IO::ByteFormat = IO::ByteFormat::SystemEndian) : Bytes
+      return to_ne_bytes if format == IO::ByteFormat::SystemEndian
+
       io = IO::Memory.new
       io.write_bytes(self, format)
+      io.rewind
+      io.getb_to_end
+    end
+
+    # Return the memory representation of this number as a byte array in native-endian byte order.
+    def to_ne_bytes : Bytes
+      io = IO::Memory.new
+      io.write_bytes(self, IO::ByteFormat::SystemEndian)
       io.rewind
       io.getb_to_end
     end
@@ -37,10 +47,20 @@ macro bytes_ext_impl(
 
     # Create a `{{ type.id }}` value from its representation as a byte array.
     def self.from_bytes(bytes : Bytes, format : IO::ByteFormat = IO::ByteFormat::SystemEndian) : {{ type.id }}
+      return from_ne_bytes(bytes) if format == IO::ByteFormat::SystemEndian
+
       raise ArgumentError.new("Expected exactly #{sizeof({{ type }})} bytes") unless bytes.size == sizeof({{ type }})
 
       memory_io = IO::Memory.new(bytes)
       {{ type.id }}.from_io(memory_io, format)
+    end
+
+    # Create a `{{ type.id }}` value from its representation as a byte array in native endian.
+    def self.from_ne_bytes(bytes : Bytes) : {{ type.id }}
+      raise ArgumentError.new("Expected exactly #{sizeof({{ type }})} bytes") unless bytes.size == sizeof({{ type }})
+
+      memory_io = IO::Memory.new(bytes)
+      {{ type.id }}.from_io(memory_io, IO::ByteFormat::SystemEndian)
     end
 
     # Create a `{{ type.id }}` value from its representation as a byte array in little endian.
