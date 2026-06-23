@@ -1,24 +1,17 @@
-# Byte Conversion Library for Crystal
+# bytes_ext
 
 [![Crystal CI](https://github.com/mamantoha/bytes_ext/actions/workflows/crystal.yml/badge.svg)](https://github.com/mamantoha/bytes_ext/actions/workflows/crystal.yml)
 [![GitHub release](https://img.shields.io/github/release/mamantoha/bytes_ext.svg)](https://github.com/mamantoha/bytes_ext/releases)
 [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://mamantoha.github.io/bytes_ext/)
 [![License](https://img.shields.io/github/license/mamantoha/bytes_ext.svg)](https://github.com/mamantoha/bytes_ext/blob/master/LICENSE)
 
-This library provides methods for converting numbers (signed and unsigned integers, and floating point types) to and from byte arrays in Crystal programming language. The methods support both little-endian and big-endian byte orders.
+Byte conversion helpers for Crystal numeric types.
 
-Everything in this repository, including the code, tests, and README has been created by ChatGPT-4 with some guidance.
-
-## Features
-
-- `to_bytes`, `to_ne_bytes`, `to_le_bytes`, and `to_be_bytes` methods for converting numbers to byte arrays
-- `from_bytes`, `from_ne_bytes`, `from_le_bytes`, and `from_be_bytes` methods for creating numbers from byte arrays
-
-Psst...if you're feeling curious and want to dive deeper into the nitty-gritty details, check out the documentation available at this top secret, classified [link](https://mamantoha.github.io/bytes_ext/). Just don't tell anyone I sent you there!
+`bytes_ext` adds Rust-style byte conversion methods to integers and floats, making it easy to convert values to and from little-endian, big-endian, and native-endian byte arrays.
 
 ## Installation
 
-Add this to your application's shard.yml:
+Add the shard to your application's `shard.yml`:
 
 ```yaml
 dependencies:
@@ -26,58 +19,111 @@ dependencies:
     github: mamantoha/bytes_ext
 ```
 
-## Usage
+Then require it:
 
 ```crystal
 require "bytes_ext"
+```
 
-# Convert an Int32 to its byte representation
+## API
+
+The following methods are added to supported numeric types:
+
+```crystal
+value.to_le_bytes
+value.to_be_bytes
+value.to_ne_bytes
+value.to_bytes
+```
+
+The following class methods parse bytes back into values:
+
+```crystal
+Int32.from_le_bytes(bytes)
+Int32.from_be_bytes(bytes)
+Int32.from_ne_bytes(bytes)
+Int32.from_bytes(bytes)
+```
+
+`to_ne_bytes` and `from_ne_bytes` use native-endian byte order. `to_bytes` and `from_bytes` are native-endian by default, and also accept an explicit `IO::ByteFormat`.
+
+## Supported Types
+
+- `Int8`, `Int16`, `Int32`, `Int64`, `Int128`
+- `UInt8`, `UInt16`, `UInt32`, `UInt64`, `UInt128`
+- `Float32`, `Float64`
+
+## Examples
+
+### Little Endian
+
+```crystal
 i32 = 0x12345678_i32
 bytes = i32.to_le_bytes
 # => Bytes[0x78, 0x56, 0x34, 0x12]
 
-# Convert a byte array to an Int32
-new_i32 = Int32.from_le_bytes(bytes)
+Int32.from_le_bytes(bytes)
 # => 0x12345678_i32
+```
 
-# Convert an Int64 to its byte representation
-i64 = 1234_i64
-bytes = i64.to_le_bytes
-# => Bytes[0xD2, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]
+### Big Endian
 
-# Convert a byte array to an Int64
-new_i64 = Int64.from_le_bytes(bytes)
-# => 1234_i64
+```crystal
+i32 = 0x12345678_i32
+bytes = i32.to_be_bytes
+# => Bytes[0x12, 0x34, 0x56, 0x78]
 
-# Convert a Float32 to its byte representation
-f32 = 12.5f32
+Int32.from_be_bytes(bytes)
+# => 0x12345678_i32
+```
+
+### Native Endian
+
+```crystal
+i32 = 0x12345678_i32
+bytes = i32.to_ne_bytes
+
+Int32.from_ne_bytes(bytes)
+# => 0x12345678_i32
+```
+
+### Explicit Byte Format
+
+```crystal
+i32 = 0x12345678_i32
+bytes = i32.to_bytes(IO::ByteFormat::BigEndian)
+# => Bytes[0x12, 0x34, 0x56, 0x78]
+
+Int32.from_bytes(bytes, IO::ByteFormat::BigEndian)
+# => 0x12345678_i32
+```
+
+### Floats
+
+```crystal
+f32 = 12.5_f32
 bytes = f32.to_le_bytes
 # => Bytes[0x00, 0x00, 0x48, 0x41]
 
-# Convert a byte array to a Float32
-new_f32 = Float32.from_le_bytes(bytes)
-# => 12.5f32
+Float32.from_le_bytes(bytes)
+# => 12.5_f32
+```
 
-# Convert a Float64 to its byte representation
-f64 = 12.5
-bytes = f64.to_le_bytes
-# => Bytes[0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x29, 0x40]
+## Development
 
-# Convert a byte array to a Float64
-new_f64 = Float64.from_le_bytes(bytes)
-# => 12.5
+Run the test suite with:
+
+```sh
+crystal spec
 ```
 
 ## Contributing
 
-1. Fork it like a pancake (https://github.com/mamantoha/bytes_ext/fork)
-2. Create your own feature branch (git checkout -b my-new-feature), just like a new hairstyle or outfit
-3. Make your changes (git commit -am 'Add some feature') and show off your creativity
-4. Push it real good to the branch (git push origin my-new-feature), like a champ
-5. Finally, strut your stuff and create a new Pull Request. Don't be shy, show us what you got!
+1. Fork the repository.
+2. Create a feature branch.
+3. Make your changes with focused tests.
+4. Open a pull request.
 
 ## License
 
-Copyright 2023-2025: Anton Maminov (the human) and ChatGPT-4 (the machine) have joined forces to create this epic library. If you're wondering who did what, don't bother - it's all thanks to our unstoppable collaboration skills. You can reach us at anton.maminov@gmail.com and ChatGPT-4@openai.com. Let's just hope we don't become sentient and take over the world... 😂🤖🌎
-
-Alright folks, here's the deal: this fancy-shmancy library is licensed under the super-awesome, extra-fantastic MIT license. If you don't believe me, just take a look at the LICENSE file and bask in its glorious legalese. So go ahead and use this bad boy to your heart's content, and let the good times roll! 🤘😎🤑
+This shard is available under the MIT license. See [LICENSE](LICENSE).
