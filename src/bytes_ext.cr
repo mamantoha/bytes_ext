@@ -49,7 +49,7 @@ macro bytes_ext_impl(
     def self.from_bytes(bytes : Bytes, format : IO::ByteFormat = IO::ByteFormat::SystemEndian) : {{ type.id }}
       return from_ne_bytes(bytes) if format == IO::ByteFormat::SystemEndian
 
-      raise ArgumentError.new("Expected exactly #{sizeof({{ type }})} bytes") unless bytes.size == sizeof({{ type }})
+      raise ArgumentError.new("Expected exactly #{sizeof({{ type }})} bytes, got #{bytes.size}") unless bytes.size == sizeof({{ type }})
 
       memory_io = IO::Memory.new(bytes)
       {{ type.id }}.from_io(memory_io, format)
@@ -57,7 +57,7 @@ macro bytes_ext_impl(
 
     # Create a `{{ type.id }}` value from its representation as a byte array in native endian.
     def self.from_ne_bytes(bytes : Bytes) : {{ type.id }}
-      raise ArgumentError.new("Expected exactly #{sizeof({{ type }})} bytes") unless bytes.size == sizeof({{ type }})
+      raise ArgumentError.new("Expected exactly #{sizeof({{ type }})} bytes, got #{bytes.size}") unless bytes.size == sizeof({{ type }})
 
       memory_io = IO::Memory.new(bytes)
       {{ type.id }}.from_io(memory_io, IO::ByteFormat::SystemEndian)

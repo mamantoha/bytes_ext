@@ -54,6 +54,16 @@ it_converts_bytes Int32,
   Bytes[0x78, 0x56, 0x34, 0x12],
   Bytes[0x12, 0x34, 0x56, 0x78]
 
+describe Int32 do
+  describe ".from_bytes" do
+    it "reports the expected and actual byte count" do
+      expect_raises(ArgumentError, "Expected exactly 4 bytes, got 3") do
+        Int32.from_bytes(Bytes[0x78, 0x56, 0x34])
+      end
+    end
+  end
+end
+
 it_converts_bytes Int64,
   1234_i64,
   Bytes[0xD2, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00],
