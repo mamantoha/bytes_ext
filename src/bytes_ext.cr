@@ -1,3 +1,4 @@
+# :nodoc:
 macro bytes_ext_impl(
   type,
   # There are all for use *only* in doc comments.
